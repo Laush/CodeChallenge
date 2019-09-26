@@ -63,10 +63,10 @@ document.querySelector('#button').addEventListener('click',noFavorites(),favorit
 			
 				console.log(this.responseText);
 				let datos= JSON.parse(this.responseText);
-                orderAsc(datos, 'name');					
+            orderAsc(datos, 'name');		
 				
 			    let nofav = datos.filter(d => d.isFavorite == false);
-					 
+					  
 				let resno =document.querySelector('#resno')	;				
 				resno.innerHTML='';
 				
@@ -84,7 +84,7 @@ document.querySelector('#button').addEventListener('click',noFavorites(),favorit
 						</div>
 	
 							<div class="col-sm-8 align-self-start">	
-							<a class="btn-detail" id="btn-detail" href="detail.html"><h4> ${item.name} </h4></a>
+							<a class="btn-detail" id="btn-detail" href="Detail/${item.id}/"><h4> ${item.name} </h4></a>
 							<h6> ${item.companyName} </h6>
 
 							</div>
