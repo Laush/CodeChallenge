@@ -25,6 +25,7 @@
             width: 33.33333%;
         }
     </style>
+  
 </head>
 
 <body>
@@ -36,7 +37,16 @@
             <div class="card-header">
                 <div class="row">
                     <div class="col-xs-6 col-md-4"> <a href="/Home/Index" id="btn-back"> < Contacts </a>   </div>
-                    <div class="col-sm-8 text-right"><label class="star">&#9733;</label> </div>
+                    <div class="col-sm-8 text-right"><label class="star" id="btn-1" onclick="hiddenButton()">&#9733;</label> </div>
+                    <script>
+                        var btn_1 = document.getElementById('btn-1');
+
+
+                        function hiddenButton() {
+                            btn_1.style.display = 'none';
+
+                        }
+                    </script>
                 </div>
             </div>
             <center>
@@ -59,7 +69,7 @@
 
                         if (this.readyState == 4 && this.status == 200) {
 
-                            let datos = JSON.parse(this.responseText);
+                            let datos = JSON.parse(this.responseText);	
 
                             let img = document.querySelector('#img');
                             let person = datos.filter(d => d.id == @ViewBag.id);
@@ -67,26 +77,27 @@
 
                             for (let item of person) {
                                 res.innerHTML += `
+                <h5 class="card-text text-center"><strong> ${item.name}</strong> </h5>
                 <h6 class="card-text text-center"> ${item.companyName} </h6> <hr>
                 PHONE:
                 <div id="textbox">
-                <h6 class="alignleft">${item.phone.home}</h6><h6 class="aligncenter"></h6><h6 class="alignright">Home</h6>
+                <h6 class="alignleft"><strong>${item.phone.home}</strong></strong></h6><h6 class="aligncenter"></h6><h6 class="alignright">Home</h6>
                 </div>
 <hr><hr>
                 PHONE:
                  <div id="textbox">
-                <h6 class="alignleft">${item.phone.mobile}</h6><h6 class="aligncenter"></h6><h6 class="alignright">Mobile</h6>
+                <h6 class="alignleft"><strong>${item.phone.mobile}</strong></strong></h6><h6 class="aligncenter"></h6><h6 class="alignright">Mobile</h6>
                 </div>
 <hr><hr>
                 PHONE:
                 <div id="textbox">
-                <h6 class="alignleft">${item.phone.work}</h6><h6 class="aligncenter"></h6><h6 class="alignright">Work</h6>
+                <h6 class="alignleft"><strong>${item.phone.work}</strong></h6><h6 class="aligncenter"></h6><h6 class="alignright">Work</h6>
                 </div>
 <hr><hr>
 
-                <h6>ADDRESS:</h6> <h6 class="card-text text-left">  ${item.address.street} </h6><hr>
-               <h6>BIRTHDATE:</h6> <h6 class="card-text text-left">  ${item.birthdate} </h6><hr>
-               EMAIL: <h6 class="card-text text-left">  ${item.emailAddress} </h6><hr>
+                <h6>ADDRESS:</h6> <h6 class="card-text text-left"> <strong> ${item.address.street}</strong> </h6><hr>
+               <h6>BIRTHDATE:</h6> <h6 class="card-text text-left"> <strong> ${item.birthdate}</strong> </h6><hr>
+               EMAIL: <h6 class="card-text text-left"> <strong> ${item.emailAddress}</strong> </h6><hr>
 
 
 						`
@@ -96,8 +107,6 @@
                                 img.innerHTML = '';
                                 img.innerHTML += `
                <img class="img-user" src = "${item.largeImageURL}" alt = "" />
-
-
 
 						`   }
 

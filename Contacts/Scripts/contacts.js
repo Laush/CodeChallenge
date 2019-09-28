@@ -34,7 +34,7 @@ document.querySelector('#button').addEventListener('click',noFavorites(),favorit
 	
 							<div class="col-sm-8 align-self-start">	
 						
-							<a class="btn-detail" id="btn-detail" href="Detail/${item.id}/"><h4>  <label class="star">&#9733;</label> ${item.name} </h4></a>
+							<a class="btn-detail" id="btn-detail" href="/Home/Detail/${item.id}/"><h4>  <label class="star">&#9733;</label> ${item.name} </h4></a>
 							<h6> ${item.companyName} </h6>
 
 							</div>
@@ -84,7 +84,7 @@ document.querySelector('#button').addEventListener('click',noFavorites(),favorit
 						</div>
 	
 							<div class="col-sm-8 align-self-start">	
-							<a class="btn-detail" id="btn-detail" href="Detail/${item.id}/"><h4> ${item.name} </h4></a>
+							<a class="btn-detail" id="btn-detail" href="/Home/Detail/${item.id}/"><h4> ${item.name} </h4></a>
 							<h6> ${item.companyName} </h6>
 
 							</div>
